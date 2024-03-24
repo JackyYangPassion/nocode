@@ -149,11 +149,14 @@ jobs:
 
       - name: 5. Run Compiled Packages In Server
         run: |
-          cd dist/${{ inputs.release_version }} && ls -lh
-          cd ./*hugegraph-incubating*src/*hugegraph*${{ inputs.release_version }} || exit
-          bin/init-store.sh && sleep 1
-          bin/start-hugegraph.sh && ls ../../
-          cd ../../ || exit
+          cd dist/${{ inputs.release_version }} || exit
+
+          ls -lh
+          pushd ./*hugegraph-incubating*src/hugegraph-server/*hugegraph*${{ inputs.release_version }} || exit
+          bin/init-store.sh || exit
+          sleep 3
+          bin/start-hugegraph.sh || exit
+          popd || exit
 
       - name: 6. Run Compiled Packages In ToolChain (Loader & Tool & Hubble)
         run: |
