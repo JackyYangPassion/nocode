@@ -8,11 +8,11 @@ on:
         default: 'apache/hugegraph-commons'
       repository_branch:
         required: true
-        default: 'release-1.0.0'
+        default: 'release-1.3.0'
       release_version:
         required: true
         description: release_version - only influence SVN
-        default: '1.0.0'
+        default: '1.3.0'
       deploy_maven:
         required: true
         type: boolean
