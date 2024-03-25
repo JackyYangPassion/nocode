@@ -58,4 +58,4 @@ jobs:
 
       - name: Release to svn
         if: ${{ inputs.deploy_svn }}
-        run: ./scripts/apache-release.sh ${{ inputs.release_version }} ${{ secrets.RELEASE_USERNAME }} ${{ secrets.RELEASE_PASSWORD }}
+        run: scripts/apache-release.sh ${{ inputs.release_version }} ${{ secrets.RELEASE_USERNAME }} ${{ secrets.RELEASE_PASSWORD }}
